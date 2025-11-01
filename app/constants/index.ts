@@ -1,6 +1,5 @@
-
 export const resumes: Resume[] = [
-  {
+    {
     id: "1",
     companyName: "Google",
     jobTitle: "Frontend Developer",
@@ -31,6 +30,7 @@ export const resumes: Resume[] = [
     },
   },
   {
+
     id: "2",
     companyName: "Microsoft",
     jobTitle: "Cloud Engineer",
@@ -61,6 +61,7 @@ export const resumes: Resume[] = [
     },
   },
   {
+
     id: "3",
     companyName: "Apple",
     jobTitle: "iOS Developer",
@@ -90,7 +91,8 @@ export const resumes: Resume[] = [
       },
     },
   },
-    {
+  {
+    
     id: "4",
     companyName: "Google",
     jobTitle: "Frontend Developer",
@@ -183,6 +185,7 @@ export const resumes: Resume[] = [
 ];
 
 export const AIResponseFormat = `
+
       interface Feedback {
       overallScore: number; //max 100
       ATS: {
@@ -228,12 +231,10 @@ export const AIResponseFormat = `
 
 export const prepareInstructions = ({
   jobTitle,
-  jobDescription,
-  AIResponseFormat,
+  jobDescription
 }: {
   jobTitle: string;
   jobDescription: string;
-  AIResponseFormat: string;
 }) =>
   `You are an expert in ATS (Applicant Tracking System) and resume analysis.
   Please analyze and rate this resume and suggest how to improve it.
