@@ -60,12 +60,21 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
+    // Ignore Chrome DevTools requests
+    if (error.status === 404 && error.data?.includes?.('.well-known')) {
+      return null;
+    }
+    
     message = error.status === 404 ? "404" : "Error";
     details =
       error.status === 404
         ? "The requested page could not be found."
         : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
+    // Suppress Chrome DevTools errors in console
+    if (error.message?.includes('.well-known')) {
+      return null;
+    }
     details = error.message;
     stack = error.stack;
   }

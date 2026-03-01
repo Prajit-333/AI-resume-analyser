@@ -26,7 +26,8 @@
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
 5. 🔗 [Assets](#links)
-6. 🚀 [More](#more)
+6. � [Troubleshooting](#troubleshooting)
+7. �🚀 [More](#more)
 
 ## 🚨 Tutorial
 
@@ -122,6 +123,69 @@ Assets and snippets used in the project can be found in the **[video kit](https:
 <a href="https://jsm.dev/resumind-kit" target="_blank">
   <img src="public/readme/videokit.webp" alt="Video Kit Banner">
 </a>
+
+## 🔧 Troubleshooting
+
+### 🔴 **CRITICAL: You MUST Sign In First!**
+
+**See this error?**
+```
+Analysis Status: pending
+Logged in: ❌ NO
+```
+
+👉 **[READ SIGN_IN.md - Fast 3-Step Guide!](./SIGN_IN.md)**
+
+**TL;DR:**
+1. Click "Sign In" in the top-right corner
+2. Log in with your free Puter.js account
+3. Refresh the page (F5)
+
+**No API key needed!** Just a free Puter.js sign-in. 🎉
+
+---
+
+**Resume keeps analyzing without showing results**
+
+The app now has automatic polling! When you upload a resume:
+
+1. **You'll be redirected to the resume page immediately** - The analysis happens in the background
+2. **The page polls for updates every 3 seconds** - You'll see "Analyzing your resume..." with a loading animation
+3. **Results appear automatically** - Once the AI finishes, the page updates with your ATS score and feedback
+4. **Sign-in required** - Make sure you're signed in with Puter.js (look for the sign-in button in the navbar)
+
+**Seeing "Feedback is missing or invalid" warning?**
+
+This means the AI response either:
+- Isn't in the expected format
+- Couldn't be parsed as JSON
+- Contains an error message
+
+👉 **See [DEBUGGING.md](./DEBUGGING.md) for detailed troubleshooting steps**
+
+Key things to check:
+1. Open browser console (F12) while uploading
+2. Look for "=== Raw AI Response ===" section
+3. Check if you see the full feedback object or an error message
+4. Follow the step-by-step guide in DEBUGGING.md
+
+**Chrome DevTools error (/.well-known/...)**
+
+The error `No route matches URL "/.well-known/appspecific/com.chrome.devtools.json"` is a harmless Chrome internal request and does not affect functionality. It has been suppressed in the error boundary.
+
+**No API key required**
+
+This application uses Puter.js for AI analysis, which doesn't require you to set up your own API keys. **Just sign in with your free Puter.js account.** No credit card needed!
+
+**Still having issues?**
+
+- Check that all dependencies are installed: `npm install`
+- Clear your browser cache and local storage
+- Try a different browser
+- Restart the development server: `npm run dev`
+- See [AUTHENTICATION.md](./AUTHENTICATION.md) for sign-in issues
+- See [DEBUGGING.md](./DEBUGGING.md) for advanced troubleshooting
+- Check the [Discord community](https://discord.com/invite/n6EdbFJ) for help
 
 ## <a name="more">🚀 More</a>
 

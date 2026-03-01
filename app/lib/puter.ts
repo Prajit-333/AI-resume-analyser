@@ -334,8 +334,13 @@ export const usePuterStore = create<PuterStore>((set, get) => {
             return;
         }
 
-        return puter.ai.chat(
-            [
+        try {
+            console.log('AI Feedback - Calling Puter.js with:');
+            console.log('  Path:', path);
+            console.log('  Message length:', message.length);
+            console.log('  Message preview:', message.substring(0, 100) + '...');
+
+            const chatMessage = [
                 {
                     role: "user",
                     content: [
@@ -349,9 +354,25 @@ export const usePuterStore = create<PuterStore>((set, get) => {
                         },
                     ],
                 },
-            ],
-            { model: "claude-3-7-sonnet" }
-        ) as Promise<AIResponse | undefined>;
+            ];
+
+            console.log('Chat message structure:', JSON.stringify(chatMessage, null, 2));
+
+            const response = await puter.ai.chat(chatMessage);
+            
+            console.log('AI Response received:', response);
+            console.log('Response type:', typeof response);
+            
+            return response as Promise<AIResponse | undefined>;
+        } catch (error) {
+            console.error('Error in feedback function:', error);
+            console.error('Error object:', error);
+            if (error && typeof error === 'object') {
+                console.error('Error keys:', Object.keys(error));
+                console.error('Error JSON:', JSON.stringify(error, null, 2));
+            }
+            throw error;
+        }
     };
 
     const img2txt = async (image: string | File | Blob, testMode?: boolean) => {
